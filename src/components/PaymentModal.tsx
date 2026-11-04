@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 import { PlanType } from '../types';
 import { X, ShieldCheck, CheckCircle2, Loader2, CreditCard, Landmark, Smartphone } from 'lucide-react';
 
@@ -19,6 +20,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   planName
 }) => {
   const { user, upgradePlan } = useAuth();
+  const { showToast } = useToast();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -44,6 +46,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
       setIsProcessing(false);
       setIsSuccess(true);
       upgradePlan(plan);
+
+      // Trigger toast confirmation
+      showToast({
+        type: 'success',
+        title: 'Payment Confirmed via Paystack!',
+        message: `Your subscription to ${planName} (₦${amount.toLocaleString()}) has been activated. Full country guides unlocked!`,
+        duration: 6000
+      });
     }, 1200);
   };
 

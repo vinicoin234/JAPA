@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
+import { ToastProvider } from './context/ToastContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { PaymentModal } from './components/PaymentModal';
@@ -114,8 +115,10 @@ const MainApp: React.FC = () => {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <MainApp />
-    </AuthProvider>
+    <ToastProvider>
+      <AuthProvider>
+        <MainApp />
+      </AuthProvider>
+    </ToastProvider>
   );
 }

@@ -25,3 +25,13 @@ html {
 .animate-pulse-slow {
   animation: pulseSlow 4s ease-in-out infinite;
 }
+
+@keyframes shrinkWidth {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
