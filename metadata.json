@@ -1,0 +1,8 @@
+{
+  "name": "Japa Update",
+  "description": "Gateway to global travel, work permits, and study opportunities for Nigerian citizens with verified visa guides and updates.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
